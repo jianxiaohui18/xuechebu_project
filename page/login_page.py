@@ -15,3 +15,8 @@ class LoginPage(BasePage):
         self.click_func(self.login_btn)    #点击登录按钮
     def click_alter_btn(self):
         self.click_func(self.alter_btn)    #点击弹出框中的警告
+    def login_func(self,username,pwd):
+        self.input_password(username)
+        self.input_password(pwd)
+        self.click_login_btn()
+        self.click_alter_btn()
