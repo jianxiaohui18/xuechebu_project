@@ -3,6 +3,7 @@ import time
 import pytest
 
 from page.page_factory import PageFactory
+from read_data.read_login_data import read_data
 from utils import init_driver
 
 
@@ -15,7 +16,8 @@ class TestLogin(object):
         yield
         time.sleep(2)
         self.driver.quit()
-    def test_login(self):
+    @pytest.mark.parametrize('username,pwd',read_data())
+    def test_login(self,username,pwd):
         #点击我的
         self.page_factory.first_page().click_mine_btn()
         #点击登录按钮
@@ -29,6 +31,6 @@ class TestLogin(object):
         # #点击弹出框
         # self.page_factory.login_page().click_alter_btn()
 
-        self.page_factory.login_page().login_func('18779128978','199305038023jxh')
+        self.page_factory.login_page().login_func(username,pwd)
 
 
