@@ -16,8 +16,8 @@ class TestLogin(object):
         yield
         time.sleep(2)
         self.driver.quit()
-    @pytest.mark.parametrize('username,pwd',read_data())
-    def test_login(self,username,pwd):
+    @pytest.mark.parametrize('username,pwd,expect',read_data())
+    def test_login(self,username,pwd,expect):
         #点击我的
         self.page_factory.first_page().click_mine_btn()
         #点击登录按钮
@@ -32,5 +32,12 @@ class TestLogin(object):
         # self.page_factory.login_page().click_alter_btn()
 
         self.page_factory.login_page().login_func(username,pwd)
+        #获取用户名
+        username_text = self.page_factory.mine_page().get_username_text()
+        # print(username_text)
+        #断言
+        assert username_text in expect
+
+
 
 

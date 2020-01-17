@@ -9,7 +9,7 @@ def read_data():
         data = yaml.safe_load(f)
         data_list = []
         for i in data:
-            data_list.append((i.get('username'),i.get('pwd')))
+            data_list.append((i.get('username'),i.get('pwd'),i.get('expect')))
         print(data_list)
         return data_list
 
