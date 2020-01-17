@@ -7,6 +7,7 @@ class LoginPage(BasePage):
     password = page.password_box
     login_btn = page.login_btn
     alter_btn = page.alter_btn
+
     def input_username(self,username):
         self.input_func(self.username,username)    #输入用户名
     def input_password(self,pwd):

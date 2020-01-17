@@ -1,6 +1,7 @@
 """
 PO 文件基类
 """
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 
 
@@ -25,8 +26,7 @@ class BasePage(object):
             .until(lambda x: x.find_element(*location))
         return element
 
-
-    def click_func(self,location,timeout=5, poll=.5):
+    def click_func(self, location, timeout=5, poll=.5):
         """
         元素点击方法
         :param element: 元素对象
@@ -35,8 +35,7 @@ class BasePage(object):
         element = self.find_element_func(location)
         element.click()
 
-
-    def input_func(self,location, text):
+    def input_func(self, location, text):
         """
         元素输入方法
         :param element: 元素对象
@@ -46,3 +45,8 @@ class BasePage(object):
         element = self.find_element_func(location)
         element.clear()  # 清空
         element.send_keys(text)  # 输入
+
+    def get_toast_message(self, text, timeout=2, poll=.2):
+        toast_str = By.XPATH, '//*[contains(@text,"{}")]'.format(text)
+        element = self.find_element_func(toast_str, timeout, poll)
+        return element.text

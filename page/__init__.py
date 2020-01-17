@@ -12,3 +12,4 @@ username_box = By.ID,'com.bjcsxq.chat.carfriend:id/login_phone_et'    #用户名
 password_box = By.ID,'com.bjcsxq.chat.carfriend:id/login_pwd_et'     #密码输入
 login_btn = By.ID,'com.bjcsxq.chat.carfriend:id/login_btn'   #登录按钮
 alter_btn = By.ID,'com.bjcsxq.chat.carfriend:id/btn_neg'    #弹窗按钮
+

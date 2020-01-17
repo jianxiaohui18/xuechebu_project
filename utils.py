@@ -11,7 +11,9 @@ def init_driver():
         "appPackage": "com.bjcsxq.chat.carfriend",  # 待测应用的包名com.android.settings
         "appActivity": ".MainActivity",  # 待测应用的启动名.Settings
         "resetKeyboard": True,  # 解决无法输入中文的问题
-        "unicodeKeyboard": True
+        "unicodeKeyboard": True,
+        # "noReset":True,   #禁止App重置
+        "automationName":'Uiautomator2'
 
     }
     driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_capabilities=capabilities)
